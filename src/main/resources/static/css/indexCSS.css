@@ -1,0 +1,72 @@
+.navbarcolor{
+		background-color: #9ACD32;
+		background-size: 20px;
+}
+.letra{
+        font-family: "Arial";
+        font-weight: bold;
+        color:#000;
+        align-content: center;
+        
+        }
+
+.letra2{
+		font-weight: bold;
+		color:#000;
+		font-size:20px;
+}
+.bttcolor{
+		  background-color: #9ACD32;
+		  border-color: white;
+		  border-top-color: white;
+		  border-bottom-color: white;
+		  border-left-color: white;
+		  border-right-color: white;
+		  border-width: 3px;
+}
+.ref{
+	 padding: 15px;
+	 color:#FFFF;
+	font-family: "Century Gothic";
+	font-size: 25px;
+	text-align:center;
+	display: inline-block;
+}
+
+.letralogo{
+		    font-family: "dope";
+			font-size: 130px;
+			color: black;
+}
+.bttlanding1{
+	      color: white;
+	      font-size: 25px;
+		  background-color: #9ACD32;
+		  border-color: white;
+		  border-width: 3px;	
+}
+.bttlanding1:hover{	
+		  color: white;
+		  background-color: #9ACD32;
+		  border-color: white;
+		  border-width: 6px;
+}
+.bttlanding2{
+		  color: white;
+		  background-color: #0078D7;
+		  border-color: white;
+		  border-width: 3px;
+		  margin-bottom: 80px;
+}
+.bttlanding2:hover{
+		  color: white;
+		  background-color: #9ACD32;
+		  border-width: 3px;
+}
+.d-block{
+		  background: white;
+		  transition: opacity 1s;
+}
+.d-block:hover{
+		  opacity: 0;
+}

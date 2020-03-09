@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Meetdia - Login</title>
+    <link rel="shortcut icon" href="/images/meetlogo.png">
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+    <div class="contenedor-form">
+        <div class="toggle">
+            <span> Registrarse</span>
+        </div>
+        
+        <div class="formulario">
+            <h2>Iniciar Sesión</h2>
+            <form action="/logincheck" method="POST">
+                <input type="text" placeholder="Usuario" name="username" required>
+                <input type="password" placeholder="Contraseña" name="password" required>
+                <input type="submit" value="Iniciar Sesión">
+                 <div class="reset-password">
+
+                    
+            <a href="/forgot">Olvide mi Contraseña</a>
+        </div>
+            </form>
+        </div>
+        
+        <div class="formulario">
+            <h2>Crea tu Cuenta</h2>
+            <form action="/registrar" method="POST" enctype="multipart/form-data">
+                
+                <p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
+                
+                <input type="text" placeholder="Nombre" name="nombre" th:value="${nombre}" required/>
+                
+                <input type="Email" placeholder="Email" name="mail" th:value="${mail}" required/>
+                
+                <input type="text" placeholder="Alias" name="alias" th:value="${alias}" required/>
+                
+                <input type="text" placeholder="Profesión" name="profesion" th:value="${profesion}" required/>
+                
+                <input type="text" placeholder="Ciudad" name="ciudad" th:value="${ciudad}" required/>
+                
+                <input type="text" placeholder="Codigo postal" name="cp" th:value="${cp}"/>
+
+                <input type="password" placeholder="Contraseña" name="clave1" required/>
+                
+                <input type="password" placeholder="Confirme contraseña" name="clave2" required/>
+                
+                <label>Foto</label>
+                 <input type="file" name="archivo" accept=".jpg, .jpeg"/>
+                
+                <input type="submit" value="Registrarme"/>
+            </form>
+        
+    </div>
+    <script src="js/jquery-3.1.1.min.js"></script>    
+    <script src="js/mainlogin.js"></script>
+</body>
+</html>

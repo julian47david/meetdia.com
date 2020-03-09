@@ -1,0 +1,189 @@
+
+/*************************
+*******Typography******
+**************************/
+
+h1, h2, h3, h4, h5, h6 {
+  color: #333;
+}
+
+h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+.parallax {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.parallax,
+.parallax h1,
+.parallax h2,
+.parallax h3,
+.parallax h4,
+.parallax h5,
+.parallax h6 {
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+  -webkit-transition: 300ms;
+  -moz-transition: 300ms;
+  -o-transition: 300ms;
+  transition: 300ms;
+}
+
+a:focus, 
+a:hover {
+  text-decoration: none;
+  outline: none
+}
+
+/*************************
+**********Buzon*****
+**************************/
+.fondo{
+  background-color:#a7dad4 ;
+  color: gray;
+}
+
+#contacto-us {
+  background-image: url(../img/Fondo4.jpg);
+  height: 700px;
+}
+
+#contacto {
+  background-image: url(../img/Fondo4.jpg);
+  height: 700px;
+  padding-right: 150px;
+  padding-left: 150px;
+}
+
+.buzon{
+  margin-top: 30px;
+}
+
+
+.form-control {
+  background-color: transparent;
+  border-color: rgba(255,255,255,.6);
+  height: 50px;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.columnas{
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border: none;
+  }
+
+.textotabla{
+text-align: center ;
+font-size: 20px;
+font-family: 'Open Sans';
+color:black;
+padding-left: 20px;
+
+}
+
+.tablo{
+  background-color: rgba(239, 245, 248, 0.80);
+  padding: 30px;
+  border-radius: 80px;
+  width: 800px;
+  color: #333;
+  overflow: hidden;
+  }
+
+.foto-usuario{
+  background-repeat: no-repeat;
+  background-position: 80%;
+  border-radius: 50%;
+
+}
+
+.mensaje{
+  padding: 50px;
+  background-color:rgba(80, 139, 187, 0.9);
+  border-radius: 80px;
+  height: 100px;
+}
+.mensajetexto{
+ text-align: center;
+}
+
+.mensajetexto{
+width: 100%;
+padding-right: auto;
+padding-left: auto;
+margin-right: auto;
+margin-left: auto;
+color: gray;
+}
+
+
+.formulario{
+margin-right: 350px;
+margin-left: 350px;
+margin-top: 50px;
+}
+
+.botones {
+    display: block;
+    padding: 12px;
+    width: 150px;
+    color: #fff;
+    border: 0;
+    margin-top: 40px;
+ margin-right: auto;
+ margin-left: auto;
+ background-color: #78acc391;
+}
+
+.largo{
+  height: 500px;
+  overflow: hidden;
+}
+
+/*************************
+********** Exito *********
+**************************/
+
+#contacto-ex {
+  background-image: url(../img/exito.jpg);
+  height: 500px;
+}
+
+.exito {
+  height: 300px;
+  margin-right: 350px;
+  margin-left: 350px;
+  margin-top: 50px;
+}
+
+/*************************
+********** Contraseña ****
+**************************/
+
+.parrafo{
+  color: white;
+  font-weight: 1px;
+  font-size:18px;
+}
+
+.cont{
+height: 300px;
+margin-top: 150px;
+margin-bottom: 0px;
+}

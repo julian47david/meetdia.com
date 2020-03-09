@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="css/bootstrap.min.css"> -->
+
+    <title>Post - Meetdia</title>
+    
+    <!-- Estilos Meetdia CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/indexCSS.css">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/images/meetlogo.png">
+
+    <style>
+        .margen-avatar{
+            margin-top:-50px;
+        }
+    </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <div class="container-fluid" style="background-color: #9ACD32;">
+        <div class="container">
+          <nav class="navbar navbarcolor navbar-expand-md navbar-dark">
+            <a class="navbar-brand" href="#">
+                <img src="/images/Logo-Meetdia.png" width="45" height="45" class="d-inline-block align-top" alt="meetdia.com">  
+            </a>
+
+            <a class="navbar-brand letra pt-4"  href="#">
+                Meetdia.com
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse row" id="navbarSupportedContent">
+                <ul class="navbar-nav m-auto col-4">
+                    <li class="nav-item active">
+
+                        <button class="btn bttcolor btn-xs my-1" type="submit">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle  letra2 text-white active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Menu
+                                </a>
+
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/logout">Cerrar Sesion</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="/muro">Inicio</a>
+                                </div>
+                            </li>
+                        </button>
+                    </li>
+
+                </ul>
+                <a href="">
+                    <i class='far fa-comments' style="font-size:25px;color:white;text-shadow:2px 2px 4px #000000;"></i>
+                </a>
+            </div>
+        </nav><!-- Navbar -->
+    </div>
+</div>
+
+</header>
+
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col-md-4 col-lg-3">
+            <!-- SobreMi -->
+            <div class="container py-5">
+                <div class="card">
+                    <img class="card-img-top" src="/img/iceland.jpg" alt="Card image cap">
+                    <div class="text-center margen-avatar">
+                        <img th:if= "${session.Usuariosession.multimedia.encoded64 != ''}" th:src="@{'data:image/jpeg;base64,'+${session.Usuariosession.multimedia.encoded64}}" alt="avatar" class="rounded-circle border" style="overflow: hidden;height: 100px; width: 100px;">
+                        <img th:unless="${session.Usuariosession.multimedia.encoded64 != ''}" src="/images/no-image.svg" alt="avatar" class="rounded-circle border" style="overflow: hidden;height: 100px;width: 100px;">
+                        <!--<img src="/img/avatar-dhg.png" alt="" class="rounded-circle border" width="100px"> -->
+                    </div>
+                    <div class="card-body text-center">
+                        <h6 class="card-title font-weight-bold" th:text="${session.Usuariosession.nickname}"></h6>
+                        <p class="card-text lead" th:text="${session.Usuariosession.profesion}"></p>
+                    </div>
+                </div>
+            </div><!-- SobreMi -->
+        </div>
+        <div class="col-md-8 col-lg-9">
+            <!-- Artículos -->
+            <div class="py-1">
+                <h1 class="display-4">Edita tu publicación</h1>
+                <div class="card mr-lg-3">
+
+                    <ul class="list-group list-group-flus">
+
+                        <!-- Artículo -->
+                        
+                        <li class="list-group-item">
+                            <div class="row py-3">
+                                <!-- Avatar -->
+                                <div class="col-3 col-sm-2 col-lg-1">
+                                    <img  th:if= "${session.Usuariosession.multimedia.encoded64 != ''}" th:src="@{'data:image/jpeg;base64,'+${session.Usuariosession.multimedia.encoded64}}" alt="avatar" class="rounded-circle border" style="overflow: hidden;height: 60px;width: 60px;" />
+                                    <img th:unless="${session.Usuariosession.multimedia.encoded64 != ''}" src="/images/no-image.svg" alt="avatar" class="rounded-circle border" style="overflow: hidden;height: 60px;width: 60px;">
+                                </div><!-- Avatar -->
+                                <article class="col-9 col-sm-10 col-lg-11">
+                                    <form action="/muro/publicar" method="POST" enctype="multipart/form-data">
+                                        <p class="card-text float-right">
+                                            <select class="form-control" name="categoria" >
+                                                <option value="default" disabled selected hidden>Categoría</option>
+                                                <option th:each="catOpt : ${T(com.edu.egg.meetdia.com.enumeraciones.Categoria).values()}" th:value="${catOpt}" th:text="${catOpt.displayValue}" name="categoria"></option>
+                                            </select>
+                                        </p>
+
+                                        <input type="text" name="idPersona" th:value="${session.Usuariosession.id}" hidden>
+
+                                        <input type="text" class="form-control form-control-md col-sm-8 font-weight-bold" placeholder="Titulo" name="titulo" th:value="${titulo}">
+                                        <textarea placeholder="Descripcion" class="form-control" name="descripcion" rows="5" cols="40" th:text="${descripcion}"></textarea>
+                                    </br>
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="customFile" name="archivo">
+                                        <label class="custom-file-label" for="customFile">Comparte tu imagen, video o PDF</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" name="busco_check" th:checked="${check_value}" value="1">
+                                        <label class="form-check-label">Estoy buscando un servicio</label>
+                                    </div>
+                                    <div class="text-center">
+                                    </br>
+                                    <p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
+                                    <a href="/muro/"><button class="btn btn-secondary" type="button">Cancelar</button></a>
+                                    <button class="btn btn-primary btn-success" type="submit">Enviar</button>
+                                </div>
+                            </form>
+                        </article>
+                    </div>
+                </li><!-- Artículo -->
+            </ul>
+        </div>
+    </div><!-- Artículos -->
+</div>
+</div>
+</div>
+<footer class="bg-dark py-3 text-white container-fluid">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis quia, culpa veritatis nihil atque natus, explicabo corrupti sed eius quidem velit laudantium provident accusantium distinctio impedit facere eos, consequatur sint.</p>
+</footer>
+
+
+
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="/js/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
